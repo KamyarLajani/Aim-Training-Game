@@ -2,7 +2,7 @@
 
 
 
-![Demo](https://raw.githubusercontent.com/KamyarLajani/Aim-Training-Game/blob/master/images/demo1.PNG)
+![Demo](https://raw.githubusercontent.com/KamyarLajani/Aim-Training-Game/master/images/demo1.PNG)
 
 ![Demo](https://raw.githubusercontent.com/KamyarLajani/Aim-Training-Game/master/images/demo2.PNG)
 
