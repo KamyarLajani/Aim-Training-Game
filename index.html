@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Slider</title>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	
+	<div id="app">
+		<template>
+			<div v-show="started != true" class="window" id="start">
+				<div>
+					<img src="./images/aim.png" alt="Aim">
+					<span>Aim Trainer</span>
+				</div>
+				<div class="modes">
+					<span>Game Mode</span>
+					<span class="active mode" onclick="mode(this)">Easy</span>
+					<span class="mode" onclick="mode(this)">Hard</span>
+				</div>
+				<div class="sensitivities">
+					<span>Sensitivity</span>
+					<span class="sensitivity" onclick="sensitivity(this)">Low</span>
+					<span class="active sensitivity" onclick="sensitivity(this)">Medium</span>
+					<span class="sensitivity" onclick="sensitivity(this)">High</span>
+				</div>
+				<div class="alignBtn">
+					<div><img  src="./images/ammo.png" alt="fire button"></div>
+					<span class="active align" onclick="align(this)">Left</span>
+					<span class="align" onclick="align(this)">Right</span>
+				</div>
+				
+				<button class="startBtn" @click="startGame()">START</button>
+				<footer style="color: gray; text-align: center; margin-top: 10px; margin-top: 20px">Copyright 2019, developed by <a style="text-decoration: none" href="https://facebook.com/click.serverr">Kamyar Lajani</a></footer>
+			</div>
+			
+
+			<div v-show="finished" class="finished window" id="finish">
+				<div>
+					<img src="./images/aim.png" alt="Aim">
+					<span>Aim Trainer</span>
+				</div>
+				<div class="scoresVal">Scores: <span>{{finalScores}}</span><span class="none">/60</span></div>
+				<p>Game Mode: <span>{{mode}}</span></p>
+				<button class="goBack" @click="started = false,finished = false">Go Back</button>
+			</div>
+			
+			<div v-show="started" class="container" @mousemove="mouseMove($event)" @mousedown="mouseDown()" @touchStart="touchStart($event)" @touchmove="touchMove($event)">
+				<audio class="fireAudio">
+					<source src="./medias/fire.mp3" type="audio/mp3">
+				</audio>
+				<audio class="hitAudio">
+					<source src="./medias/hit.mp3" type="audio/mp3">
+				</audio>
+				
+				<div class="scores">SCORES: <span>{{scoresCount}}</span></div>
+				<img src="./images/aim.png" alt="aim" id="scopeTarget" />
+				<div class="circules"></div>
+				<div class="fireBtn"><img src="./images/ammo.png" alt="fire button" /></div>
+				  
+			</div>
+		</template>
+	</div>
+	<script src="./app.js"></script>
+
+</body>
+</html>
